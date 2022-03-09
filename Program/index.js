@@ -17,5 +17,3 @@ require("amqplib/callback_api").connect(
     publisher.createChannel();
   }
 );
-
-const consumer = new Consumer();
