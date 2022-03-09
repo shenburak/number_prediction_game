@@ -1,9 +1,17 @@
 # Number prediction game
 Basically a set of programs that try to generate random numbers and guess numbers that each other generates, queue the numbers with RabbitMQ and add items to their score queues on correct guesses.
 
-## Run
+# Contents
+  - [Run](#-run)
+    - [On local](#-on-local)
+    - [With docker](#-with-docker)
+    - [With kubernetes](#-with-kubernetes)
+  - [FAQ](#-faq)
+    - [Verbose option](#-verbose-option)
+    - [RabbitMQ link address](#-rabbitmq-link-address)
+## <a name="run"></a> Run
 
-### On local
+### <a name="run-on-local"></a> On local
 
 - Requires a RabbitMQ running on the machine.
 
@@ -22,7 +30,7 @@ Run program_b
 npm run program_b
 ```
 
-### With docker
+### <a name="run-with-docker"></a> With docker
 
 Start
 ```
@@ -34,7 +42,7 @@ Stop
 make stop_with_docker
 ```
 
-### With kubernetes
+### <a name="run-with-kubernetes"></a> With kubernetes
 
 Build program images
 ```
@@ -50,3 +58,11 @@ Stop
 ```
 make stop_with_k8s
 ```
+
+## <a name="faq"></a> FAQ
+
+### <a name="faq-verbose-option"></a> Verbose option
+You can delete the VERRBOSE value in the .env to close the logs
+
+### <a name="faq-rabbitmq-link-address"></a> RabbitMQ link address
+By default, programs look for the RabbitMQ program running at localhost; however, you can change this by defining the AMQP_RECEIVE_URL key in the .env file.
