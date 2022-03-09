@@ -22,7 +22,7 @@ npm i
 
 Run program_a
 ```
-npm i run program_a
+npm run program_a
 ```
 
 Run program_b
