@@ -48,6 +48,12 @@ Monitor queues at http://localhost:15672/#/queues
 
 ### <a name="run-with-kubernetes"></a> With kubernetes
 
+- Since .deploy/rabbitmq/stateful.yml uses the local-storage storage class for permanent file storage, in the nodeAffinity definitions in the .deploy/rabbitmq/pvs.yml file, the existing node name must be entered in values and an existing file location in local, path. (In this example, docker-desktop application running with wsl on windows machine is used)
+  - For example, can create the default path in the example with the following commands
+    - ``mkdir /mnt/wsl/rabbitmqdir``
+  	- ``mkdir /mnt/wsl/rabbitmqdir/rabbitmq-0`` this path is used in pvs.yml as /run/desktop/mnt/host/wsl/rabbitmq-dir/rabbitmq-0
+  	- ``mkdir /mnt/wsl/rabbitmqdir/rabbitmq-1`` this path is used in pvs.yml as /run/desktop/mnt/host/wsl/rabbitmq-dir/rabbitmq-1
+
 Build program images
 ```
 make build_image

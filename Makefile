@@ -12,9 +12,9 @@ build_image:
 	docker build -t program_b .
 
 start_with_k8s:
-	mkdir /mnt/wsl/rabbitmqdir
-	mkdir /mnt/wsl/rabbitmqdir/rabbitmq-1
-	mkdir /mnt/wsl/rabbitmqdir/rabbitmq-0
+	#mkdir /mnt/wsl/rabbitmqdir
+	#mkdir /mnt/wsl/rabbitmqdir/rabbitmq-1
+	#mkdir /mnt/wsl/rabbitmqdir/rabbitmq-0
 	kubectl apply -f .deploy/namespace.yml
 	kubectl apply -f .deploy/rabbitmq/rbac.yml
 	kubectl apply -f .deploy/rabbitmq/pvs.yml
@@ -24,7 +24,7 @@ start_with_k8s:
 	kubectl apply -f .deploy/program/a.yml
 	kubectl apply -f .deploy/program/b.yml
 stop_with_k8s:
-	rm -rf /mnt/wsl/rabbitmqdir
+	#rm -rf /mnt/wsl/rabbitmqdir
 	kubectl delete -f .deploy/namespace.yml & make delete_pvs
 delete_pvs:
 	kubectl delete pv pv-data-vol-0
