@@ -30,6 +30,8 @@ Run program_b
 npm run program_b
 ```
 
+Monitor queues at http://localhost:15672/#/queues
+
 ### <a name="run-with-docker"></a> With docker
 
 Start
@@ -41,6 +43,8 @@ Stop
 ```
 make stop_with_docker
 ```
+
+Monitor queues at http://localhost:15672/#/queues
 
 ### <a name="run-with-kubernetes"></a> With kubernetes
 
@@ -59,10 +63,12 @@ Stop
 make stop_with_k8s
 ```
 
+Monitor queues at http://localhost:31672/#/queues
+
 ## <a name="faq"></a> FAQ
 
 ### <a name="faq-verbose-option"></a> Verbose option
-You can delete the VERRBOSE value in the .env to close the logs
+Delete the VERRBOSE value in the .env to close the logs
 
 ### <a name="faq-rabbitmq-link-address"></a> RabbitMQ link address
-By default, programs look for the RabbitMQ program running at localhost; however, you can change this by defining the AMQP_RECEIVE_URL key in the .env file.
+By default, programs look for the RabbitMQ program running at localhost; however, this can change by defining the AMQP_RECEIVE_URL key in the .env file.
