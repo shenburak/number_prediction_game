@@ -34,7 +34,7 @@ Monitor queues at http://localhost:15672/#/queues
 
 ### <a name="run-with-docker"></a> With docker
 
-Start (it will take about 1 minute for everything to start)
+Start (it will take about 30 seconds for everything to start)
 ```
 make start_with_docker
 ```
@@ -59,7 +59,7 @@ Build program images
 make build_image
 ```
 
-Start
+Start (it will take about 1 minute for everything to start)
 ```
 make start_with_k8s
 ```
