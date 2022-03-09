@@ -34,7 +34,7 @@ Monitor queues at http://localhost:15672/#/queues
 
 ### <a name="run-with-docker"></a> With docker
 
-Start
+Start (it will take about 1 minute for everything to start)
 ```
 make start_with_docker
 ```
