@@ -59,7 +59,7 @@ Build program images
 make build_image
 ```
 
-Start (it will take about 1 minute for everything to start)
+Start (it will take about 2-3 minute for everything to start)
 ```
 make start_with_k8s
 ```
