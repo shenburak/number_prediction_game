@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  program_a:
+    image: program_a
+    command: npm run program_a
+    build: .
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    links:
+      - rabbitmq
+    environment:
+      - AMQP_RECEIVE_URL=rabbitmq
+    restart: on-failure
+
+  program_b:
+    image: program_b
+    command: npm run program_b
+    build: .
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    links:
+      - rabbitmq
+    environment:
+      - AMQP_RECEIVE_URL=rabbitmq
+    restart: on-failure
+
+  rabbitmq:
+      image: rabbitmq:3-management-alpine
+      ports:
+          - 5672:5672
+          - 15672:15672
+      healthcheck:
+        test: [ "CMD", "nc", "-z", "localhost", "5672" ]
+        interval: 5s
+        timeout: 15s
+        retries: 1

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: number-prediction-game
+  name: program-b-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: program-b-app
+  template:
+    metadata:
+      labels:
+        app: program-b-app
+    spec:
+      containers:
+      - name: program-b-app
+        image: program_b
+        imagePullPolicy: Never
+        env:
+          - name: AMQP_RECEIVE_URL
+            value: rabbitmq
+        command: ["npm"]
+        args: ["run", "program_b"]
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

@@ -1,0 +1,13 @@
+{
+  "name": "program",
+  "version": "1.0.0",
+  "main": "Program/index.js",
+  "scripts": {
+    "program_a": "node Program/index.js a b",
+    "program_b": "node Program/index.js b a"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "dotenv": "^16.0.0"
+  }
+}

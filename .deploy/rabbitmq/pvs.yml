@@ -1,0 +1,51 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-data-vol-0
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: local-storage
+  local:
+    path: "/run/desktop/mnt/host/wsl/rabbitmq-dir/rabbitmq-0"
+  claimRef:
+    namespace: number-prediction-game
+    name: data-rabbitmq-0
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - docker-desktop
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-data-vol-1
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: local-storage
+  local:
+    path: "/run/desktop/mnt/host/wsl/rabbitmq-dir/rabbitmq-1"
+  claimRef:
+    namespace: number-prediction-game
+    name: data-rabbitmq-1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - docker-desktop

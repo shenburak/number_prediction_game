@@ -1,0 +1,44 @@
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: number-prediction-game
+  name: rabbitmq
+  labels:
+    app: rabbitmq
+    type: LoadBalancer  
+spec:
+  type: NodePort
+  ports:
+   - name: http
+     protocol: TCP
+     port: 15672
+     targetPort: 15672
+     nodePort: 31672
+   - name: amqp
+     protocol: TCP
+     port: 5672
+     targetPort: 5672
+     nodePort: 30672
+  selector:
+    app: rabbitmq
+---
+kind: Service 
+apiVersion: v1
+metadata:
+  namespace: number-prediction-game
+  name: rabbitmq-lb
+  labels:
+    app: rabbitmq
+spec:
+  clusterIP: None
+  ports:
+   - name: http
+     protocol: TCP
+     port: 15672
+     targetPort: 15672
+   - name: amqp
+     protocol: TCP
+     port: 5672
+     targetPort: 5672
+  selector:
+    app: rabbitmq
